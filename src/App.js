@@ -5,6 +5,7 @@ import Info from './components/Info';
 import ToggleMode from './Toggle';
 import TabsLists from './components/TabsList';
 import Details from './components/Details';
+import { SnackbarProvider, useSnackbar } from 'notistack';
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   width: 62,
@@ -88,50 +89,51 @@ function App() {
   }
   return (
     <Container maxWidth="lg">
+      <SnackbarProvider>
+        {/* header */}
+        <Grid container alignItems="center" justifyContent="space-between" className="intro">
+          <Grid item>
+            <Typography variant="h4" component="h2">
+              Pham Thanh Nguyen <span style={lineStyle}>_</span> Bui
+            </Typography>
+          </Grid>
+          <Grid item sx={{ display: 'flex' }}>
+            <FormGroup>
+              <FormControlLabel
+                onChange={toggleTheme}
+                checked={isDarkMode}
+                control={<MaterialUISwitch sx={{ m: 1 }} checked={isDarkMode} />}
+              />
+            </FormGroup>
+            <Button
+              sx={{
+                background: 'linear-gradient(to right, #F44958, #E42F6D)',
+                boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.25)',
+                color: '#fff',
+                fontSize: '13px',
+                fontWeight: 'bold',
+                padding: '10px 20px',
+                width: '100px',
+                height: '40px',
+              }}
+            >
+              Hire me
+            </Button>
+          </Grid>
 
-      {/* header */}
-      <Grid container alignItems="center" justifyContent="space-between" className="intro">
-        <Grid item>
-          <Typography variant="h4" component="h2">
-            Pham Thanh Nguyen <span style={lineStyle}>_</span> Bui
-          </Typography>
-        </Grid>
-        <Grid item sx={{ display: 'flex' }}>
-          <FormGroup>
-            <FormControlLabel
-              onChange={toggleTheme}
-              checked={isDarkMode}
-              control={<MaterialUISwitch sx={{ m: 1 }} checked={isDarkMode} />}
-            />
-          </FormGroup>
-          <Button
-            sx={{
-              background: 'linear-gradient(to right, #F44958, #E42F6D)',
-              boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.25)',
-              color: '#fff',
-              fontSize: '13px',
-              fontWeight: 'bold',
-              padding: '10px 20px',
-              width: '100px',
-              height: '40px',
-            }}
-          >
-            Hire me
-          </Button>
-        </Grid>
-
-      </Grid>
-
-      {/* Card middle */}
-      <Grid container justifyContent="space-between" className="portfolio" sx={{ marginTop: '50px', width: '100%' }}>
-        <Grid item className='info'>
-          <Info />
-        </Grid>
-        <Grid item className='tabs'>
-          <TabsLists />
         </Grid>
 
-      </Grid>
+        {/* Card middle */}
+        <Grid container justifyContent="space-between" className="portfolio" sx={{ marginTop: '50px', width: '100%' }}>
+          <Grid item className='info'>
+            <Info />
+          </Grid>
+          <Grid item className='tabs'>
+            <TabsLists />
+          </Grid>
+
+        </Grid>
+      </SnackbarProvider>
     </Container>
   );
 }

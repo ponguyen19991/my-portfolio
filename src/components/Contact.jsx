@@ -3,11 +3,15 @@ import { Box, Stack, TextField, Typography, Grid, Button } from '@mui/material'
 import { FaLocationDot } from "react-icons/fa6";
 import { FaPhone } from "react-icons/fa";
 import { IoMdMail, IoMdSend } from "react-icons/io";
+import { SnackbarProvider, useSnackbar } from 'notistack';
+
 import '../assets/css/Contact.scss'
 
 import emailjs from '@emailjs/browser';
 
 const Contact = () => {
+  const { enqueueSnackbar } = useSnackbar();
+
   const form = useRef();
   const nameRef = useRef();
   const emailRef = useRef();
@@ -15,10 +19,6 @@ const Contact = () => {
 
   const sendEmail = (e) => {
     e.preventDefault();
-   // Log dữ liệu từ form
-   console.log(form.current.user_name.value);
-   console.log(form.current.user_email.value);
-   console.log(form.current.message.value);
  
     emailjs
       .sendForm('service_psxjoyw', 'template_p26yi6g', form.current, {
@@ -30,14 +30,18 @@ const Contact = () => {
       })
       .then(
         () => {
-          console.log('SUCCESS!');
+          enqueueSnackbar('Send Success!', { variant: 'success' });
         },
         (error) => {
-          console.log('FAILED...', error.text);
+          enqueueSnackbar('Send failed, please try again later!', { variant: 'error' });
         },
       );
   };
   
+  const handleClickVariant = (variant) => () => {
+    enqueueSnackbar('This is a success message!', { variant });
+  };
+
 
   return (
     <Box>
@@ -152,6 +156,7 @@ const Contact = () => {
           <Grid item xs={12}>
             <Button
               type="submit"
+              
               sx={{
                 background: 'linear-gradient(to right, #F44958, #E42F6D)',
                 boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.25)',
