@@ -9,6 +9,7 @@ import About from './About';
 import Contact from './Contact';
 import Resume from './Resume';
 import '../assets/css/Tablist.scss'
+import Works from './Works';
 
 const TabsList = () => {
   const [value, setValue] = useState('about');
@@ -42,6 +43,7 @@ const TabsList = () => {
           {value === 'about' && <About/>}
           {value === 'contact' && <Contact/>}
           {value === 'resume' && <Resume/>}
+          {value === 'works' && <Works/>}
         </Box>
       </Box>
     </TabContext>
