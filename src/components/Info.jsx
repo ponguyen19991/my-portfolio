@@ -27,6 +27,25 @@ function Info() {
         console.log(cvUrl)
     };
 
+    const facebookLink = 'https://www.facebook.com/profile.php?id=100019798788321'; 
+    const gitHubLink = 'https://github.com/ponguyen19991'; 
+    const linkedLink = 'https://www.linkedin.com/in/nguyên-bùi-phạm-thành-6ab112221/';
+
+
+    const handleFacebookClick = () => {
+        window.open(facebookLink, '_blank'); 
+    };
+
+
+    const handleGitHubLinkClick = () => {
+        window.open(gitHubLink, '_blank'); 
+    };
+
+
+    const handleLinkedLinkClick = () => {
+        window.open(linkedLink, '_blank'); 
+    };
+
   return (
     <Card sx={{
         backgroundColor: '#ffffff',
@@ -70,7 +89,7 @@ function Info() {
                         cursor: 'pointer'
                     }}
                 >
-                <FaFacebookF/>
+                <FaFacebookF onClick={handleFacebookClick}/>
                 </Box>
                 <Box
                         sx={{
@@ -89,7 +108,7 @@ function Info() {
                             cursor: 'pointer'
                         }}
                     >
-                    <FaGithub/>
+                    <FaGithub onClick={handleGitHubLinkClick}/>
                 </Box>
                 <Box
                         sx={{
@@ -108,7 +127,7 @@ function Info() {
                             cursor: 'pointer'
                         }}
                     >
-                    <FaLinkedinIn />
+                    <FaLinkedinIn onClick={handleLinkedLinkClick}/>
                 </Box>
                 <Box
                         sx={{
