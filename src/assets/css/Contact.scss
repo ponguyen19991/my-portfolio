@@ -1,0 +1,9 @@
+.border {
+    border: 2px solid var(--text-color);
+    width: fit-content;
+    padding: 10px;
+    transform: rotate(45deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
