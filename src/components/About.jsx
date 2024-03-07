@@ -9,7 +9,7 @@ const About = () => {
   return (
     <Box>
       <div className='aboutMe'>
-        <Typography variant="h6" component="h2" sx={{ fontWeight: '550', borderBottom: '2px solid black', display: 'inline-block' }}>
+        <Typography variant="h6" component="h2" sx={{ fontWeight: '550', borderBottom: '2px solid var(--text-color)', display: 'inline-block' }}>
           About
         </Typography>
         <Typography variant='p' component="p" sx={{ mt: 2, mb: 1, fontWeight: '550', color: "#989898" }}>
@@ -20,7 +20,7 @@ const About = () => {
         </Typography>
       </div>
       <div className='whatIdo'>
-        <Typography variant="h6" component="h2" sx={{ fontWeight: '550', borderBottom: '2px solid black', display: 'inline-block' }}>
+        <Typography variant="h6" component="h2" sx={{ fontWeight: '550', borderBottom: '2px solid var(--text-color)', display: 'inline-block' }}>
           What I Do!
         </Typography>
 

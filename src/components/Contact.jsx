@@ -1,11 +1,44 @@
+import React, { useRef } from 'react';
 import { Box, Stack, TextField, Typography, Grid, Button } from '@mui/material'
-import React from 'react'
 import { FaLocationDot } from "react-icons/fa6";
 import { FaPhone } from "react-icons/fa";
 import { IoMdMail, IoMdSend } from "react-icons/io";
 import '../assets/css/Contact.scss'
 
+import emailjs from '@emailjs/browser';
+
 const Contact = () => {
+  const form = useRef();
+  const nameRef = useRef();
+  const emailRef = useRef();
+  const messageRef = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+   // Log dữ liệu từ form
+   console.log(form.current.user_name.value);
+   console.log(form.current.user_email.value);
+   console.log(form.current.message.value);
+ 
+    emailjs
+      .sendForm('service_psxjoyw', 'template_p26yi6g', form.current, {
+        publicKey: 'QWKxOVwBU74Ka3O_I',
+        
+      }, {
+        // Thêm phạm vi xác thực cần thiết
+        emailjs: 'send' 
+      })
+      .then(
+        () => {
+          console.log('SUCCESS!');
+        },
+        (error) => {
+          console.log('FAILED...', error.text);
+        },
+      );
+  };
+  
+
   return (
     <Box>
        <div className='content'>
@@ -49,9 +82,11 @@ const Contact = () => {
           Send message
         </Typography>
         <Box sx={{ padding: '30px' }}>
-          <Grid container spacing={2}>
-            <Grid item xs={12} sm={6}>
+        <form ref={form} onSubmit={sendEmail}>
+        <Grid container spacing={2}>
+          <Grid item xs={12} sm={6}>
             <TextField 
+              name="user_name"
               label="Name" 
               fullWidth 
               sx={{ 
@@ -68,9 +103,10 @@ const Contact = () => {
                 },
               }} 
             />
-            </Grid>
-            <Grid item xs={12} sm={6}>
+          </Grid>
+          <Grid item xs={12} sm={6}>
             <TextField 
+              name="user_email"
               label="Email" 
               fullWidth 
               sx={{ 
@@ -87,9 +123,10 @@ const Contact = () => {
                 },
               }} 
             />
-            </Grid>
-            <Grid item xs={12}>
+          </Grid>
+          <Grid item xs={12}>
             <TextField 
+              name="message"
               label="Message" 
               fullWidth 
               multiline 
@@ -111,25 +148,29 @@ const Contact = () => {
                 }
               }} 
             />
-            </Grid>
           </Grid>
-          <Button
-                sx={{
-                    background: 'linear-gradient(to right, #F44958, #E42F6D)',
-                    boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.25)',
-                    color: '#fff',
-                    borderRadius: "6px",
-                    fontSize: '15px',
-                    fontWeight: 'bold',
-                    padding: '10px 20px',
-                    width: '110px',
-                    height: '45px',
-                    margin: '0 auto',
-                    mt: 2,
-                }}
+          <Grid item xs={12}>
+            <Button
+              type="submit"
+              sx={{
+                background: 'linear-gradient(to right, #F44958, #E42F6D)',
+                boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.25)',
+                color: '#fff',
+                borderRadius: "6px",
+                fontSize: '15px',
+                fontWeight: 'bold',
+                padding: '10px 20px',
+                width: '110px',
+                height: '45px',
+                margin: '0 auto',
+                mt: 2,
+              }}
             >
-                SEND 
-          </Button>
+              SEND 
+            </Button>
+          </Grid>
+        </Grid>
+      </form>
         </Box>
       </div>
     </Box>

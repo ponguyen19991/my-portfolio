@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef, useEffect } from 'react'
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
@@ -12,7 +12,21 @@ import { RiMailSendLine } from "react-icons/ri";
 import { MdOutlineDateRange } from "react-icons/md";
 import { FaXTwitter } from "react-icons/fa6";
 
+import CV from "../assets/file/Bui-Pham-Thanh-Nguyen - Frontend Developer - ReactJs.pdf";
+
+
 function Info() {
+    const handleDownloadCV = () => {
+        const cvUrl = CV;
+        const link = document.createElement('a');
+        link.href = cvUrl;
+        link.download = 'Bui-Pham-Thanh-Nguyen - Frontend Developer - ReactJs.pdf'; 
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        console.log(cvUrl)
+    };
+
   return (
     <Card sx={{
         backgroundColor: '#ffffff',
@@ -237,6 +251,7 @@ function Info() {
 
         <CardActions>
             <Button
+            onClick={handleDownloadCV}
                 sx={{
                     background: 'linear-gradient(to right, #F44958, #E42F6D)',
                     boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.25)',
