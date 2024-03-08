@@ -34,7 +34,7 @@ const Works = () => {
         </Typography>
       </Box>
       <Stack direction='row' spacing={2}>
-        <Card onClick={handleClickOpen} sx={{ minWidth: 375, background: '#1A191D', boxShadow: 'rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px', cursor: 'pointer', 
+        <Card onClick={handleClickOpen} sx={{ minWidth: 375, background: 'var(--background-project-work)', boxShadow: 'rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px', cursor: 'pointer', 
                     transition: '0.2s ease-in',
                     '&:hover': {
                       background: 'rgba(0, 0, 0, 0.03)',
@@ -91,7 +91,7 @@ const Works = () => {
                   width: '150px',
                   height: '40px',
                   '&:hover': {
-                    background: '#fff !important', // Loại bỏ hover background
+                    background: 'var(--hover) !important',
                   },
                 }}
               >
@@ -186,7 +186,7 @@ const Works = () => {
           </DialogActions>
         </Dialog>
 
-        <Card sx={{ minWidth: 375, background: '#1A191D', boxShadow: 'rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px', cursor: 'pointer', 
+        <Card sx={{ minWidth: 375, background: 'var(--background-project-work)', boxShadow: 'rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px', cursor: 'pointer', 
                     transition: '0.2s ease-in',
                     '&:hover': {
                       background: 'rgba(0, 0, 0, 0.03)',
@@ -242,7 +242,7 @@ const Works = () => {
                   width: '150px',
                   height: '40px',
                   '&:hover': {
-                    background: '#fff !important', // Loại bỏ hover background
+                    background: 'var(--hover) !important',
                   },
                 }}
               >

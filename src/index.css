@@ -18,6 +18,10 @@ body {
 
   --details-box: #333;
   --details-text: #fff;
+
+  --background-project-work: linear-gradient(to right, #EADDEE, #E0E7EF);
+
+  --hover: rgba(0, 0, 0, 0.8);
 }
 
 [data-theme='dark'] {
@@ -27,5 +31,9 @@ body {
 
   --details-box: #fff;
   --details-text: #333;
+
+  --background-project-work: #1A191D;
+  
+  --hover: rgba(255,255,255,0.8);
 
 }
