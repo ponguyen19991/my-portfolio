@@ -5,17 +5,27 @@ import { FaRegClock } from "react-icons/fa";
 import thailogo from '../assets/images/ThaiLogo.png'
 import device from '../assets/images/deviceLogo.png'
 import thaiFood from '../assets/images/thaiFood.jpg'
+import deviceManager from '../assets/images/device.jpg'
 
 const Works = () => {
-  const [open, setOpen] = useState(false);
+  const [openThaiFood, setOpenThaiFood] = useState(false);
+  const [openDeviceManager, setOpenDeviceManager] = useState(false);
 
-  const handleClickOpen = () => {
-    setOpen(true);
+  const handleClickOpenThaiFood = () => {
+    setOpenThaiFood(true);
+  };
+  const handleClickOpenDeviceManager = () => {
+    setOpenDeviceManager(true);
+  };
+  
+
+  const handleCloseThaiFood = () => {
+    setOpenThaiFood(false);
+  };
+  const handleCloseDeviceManager  = () => {
+    setOpenDeviceManager(false);
   };
 
-  const handleClose = () => {
-    setOpen(false);
-  };
   const handleClick = () => {
     
   };
@@ -34,7 +44,7 @@ const Works = () => {
         </Typography>
       </Box>
       <Stack direction='row' spacing={2}>
-        <Card onClick={handleClickOpen} sx={{ minWidth: 375, background: 'var(--background-project-work)', boxShadow: 'rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px', cursor: 'pointer', 
+        <Card onClick={handleClickOpenThaiFood} sx={{ minWidth: 375, background: 'var(--background-project-work)', boxShadow: 'rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px', cursor: 'pointer', 
                     transition: '0.2s ease-in',
                     '&:hover': {
                       background: 'rgba(0, 0, 0, 0.03)',
@@ -80,7 +90,7 @@ const Works = () => {
                 Live <CgMediaLive style={{ marginLeft: '5px', fontSize: '17px' }}/>
               </Button>
               <Button
-                onClick={handleClickOpen}
+                onClick={handleClickOpenThaiFood}
                 sx={{
                   background: 'var(--details-box)',
                   color: 'var(--details-text)',
@@ -108,8 +118,8 @@ const Works = () => {
                         borderRadius: '15px'
                       },
                     }} 
-                    open={open} 
-                    onClose={handleClose}>
+                    open={openThaiFood} 
+                    onClose={handleCloseThaiFood}>
           <DialogTitle>
             <Typography variant="h6" component="h2" sx={{ fontWeight: '550', mb: 1, mt: 1 }}>
               Project Details
@@ -182,11 +192,11 @@ const Works = () => {
               </Box>
             </DialogContent>
           <DialogActions>
-            <Button sx={{ background: 'linear-gradient(108.4deg, rgb(253, 44, 56) 3.3%, rgb(176, 2, 12) 98.4%)', color: '#fff', fontWeight: 550 }} onClick={handleClose}>Close</Button>
+            <Button sx={{ background: 'linear-gradient(108.4deg, rgb(253, 44, 56) 3.3%, rgb(176, 2, 12) 98.4%)', color: '#fff', fontWeight: 550 }} onClick={handleCloseThaiFood}>Close</Button>
           </DialogActions>
         </Dialog>
 
-        <Card sx={{ minWidth: 375, background: 'var(--background-project-work)', boxShadow: 'rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px', cursor: 'pointer', 
+        <Card onClick={handleClickOpenDeviceManager} sx={{ minWidth: 375, background: 'var(--background-project-work)', boxShadow: 'rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px', cursor: 'pointer', 
                     transition: '0.2s ease-in',
                     '&:hover': {
                       background: 'rgba(0, 0, 0, 0.03)',
@@ -232,6 +242,7 @@ const Works = () => {
                 Live <CgMediaLive style={{ marginLeft: '5px', fontSize: '17px' }}/>
               </Button>
               <Button
+                onClick={handleClickOpenDeviceManager}
                 sx={{
                   background: 'var(--details-box)',
                   color: 'var(--details-text)',
@@ -252,6 +263,85 @@ const Works = () => {
 
           </CardActions>
         </Card>
+        <Dialog sx={{
+                      '& .MuiDialog-paper': {
+                        width: '550px',
+                        background: 'var(--background-color)',
+                        borderRadius: '15px'
+                      },
+                    }} 
+                    open={openDeviceManager} 
+                    onClose={handleCloseDeviceManager}>
+          <DialogTitle>
+            <Typography variant="h6" component="h2" sx={{ fontWeight: '550', mb: 1, mt: 1 }}>
+              Project Details
+            </Typography>
+          </DialogTitle>
+            <DialogContent>
+              <img src={deviceManager} alt="thai" width={480} style={{ borderRadius: "10px", marginBottom: '10px' }}/>
+
+              <Box>
+                <Typography variant='p' component="p" sx={{ fontWeight: '550', color: "#989898", mt: 1, mb: 1 }}>
+                  Description
+                </Typography>
+                <Typography variant='p' component="p" sx={{ fontWeight: '550',  mb: 5, color: 'var(--text-color)' }}>
+                  The 'Device Manager' app simplifies device management tasks, offering an intuitive platform to monitor and control connected devices efficiently. With its user-friendly interface, users can oversee, configure, and troubleshoot devices with ease, ensuring optimal performance and reliability in their technological environment.
+                </Typography>
+              </Box>
+              <Box>
+                <Typography variant='p' component="p" sx={{ fontWeight: '550', color: "#989898", mb: 1 }}>
+                  Tags
+                </Typography>
+                <Stack direction="row" spacing={2} sx={{  flexWrap: 'wrap', mb: 5 }}>
+                  <Chip className='tags' label="Project"  onClick={handleClick} />
+                  <Chip className='tags' label="Ongoing"  onClick={handleClick} />
+                  <Chip className='tags' label="Hobby"  onClick={handleClick} />
+                </Stack>
+              </Box>
+              <Box>
+                <Stack direction="row" spacing={15} sx={{  flexWrap: 'wrap', mb: 5 }}>
+                  <Box>
+                    <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
+                      <FaRegClock style={{ fontSize: '23px', marginRight: '5px', color: '#989898' }}/>
+                      <Typography variant='p' component="p" sx={{ fontWeight: '550', color: "#989898" }}>
+                        Started
+                      </Typography>
+                    </Box>
+                    <Typography variant='p' component="p" sx={{ fontWeight: '550', color: 'var(--text-color)'  }}>
+                      November 2023
+                    </Typography>
+                  </Box>
+                  <Box>
+                    <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
+                      <FaRegClock style={{ fontSize: '23px', marginRight: '5px', color: '#989898' }}/>
+                      <Typography variant='p' component="p" sx={{ fontWeight: '550', color: "#989898" }}>
+                        Due Date
+                      </Typography>
+                    </Box>
+                    <Typography variant='p' component="p" sx={{ fontWeight: '550', color: 'var(--text-color)' }}>
+                      present
+                    </Typography>
+                  </Box>
+                </Stack>
+              </Box>
+              <Box>
+                <Typography variant='p' component="p" sx={{ fontWeight: '550', color: "#989898", mb: 1 }}>
+                  Author
+                </Typography>
+                <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                  <Avatar sx={{ background: "#333", marginRight: '5px' }} aria-label="recipe">
+                    N
+                  </Avatar>
+                  <Typography variant='p' component="p" sx={{ fontWeight: '550', color: 'var(--text-color)'  }}>
+                    Pham Thanh Nguyen Bui
+                  </Typography>
+                </Box>
+              </Box>
+            </DialogContent>
+          <DialogActions>
+            <Button sx={{ background: 'linear-gradient(108.4deg, rgb(253, 44, 56) 3.3%, rgb(176, 2, 12) 98.4%)', color: '#fff', fontWeight: 550 }} onClick={handleCloseDeviceManager}>Close</Button>
+          </DialogActions>
+        </Dialog>
       </Stack>
     </Box>
   )
