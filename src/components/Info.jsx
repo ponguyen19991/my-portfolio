@@ -68,7 +68,7 @@ function Info() {
                     Nguyen _ Bui
                 </Typography>
                 <Typography variant="small" component="div" sx={{color: '#B2B2B2', fontWeight: 'bold'}}>
-                    Junior Front End Developer
+                    Front End Developer
                 </Typography>
             </CardContent>
             <Grid container alignItems="center" justifyContent="center">
@@ -238,7 +238,7 @@ function Info() {
                     <Typography variant="small" component="div" sx={{color: '#B2B2B2', fontWeight: 'bold', fontSize: "14px"}}>
                         Location
                     </Typography>
-                    <Typography variant="body1">District 3, Ho Chi Minh</Typography>
+                    <Typography variant="body1">Mai Dich, Cau Giay, Ha Noi</Typography>
                 </Box>
             </Grid>
 

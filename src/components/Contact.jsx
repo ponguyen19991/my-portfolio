@@ -61,7 +61,7 @@ const Contact = () => {
               <FaLocationDot style={{ fontSize: '20px', transform: 'rotate(-45deg)' }} />
             </div>
           </div>
-            <Typography variant="body1">District 3, Ho Chi Minh</Typography>
+            <Typography variant="body1">Mai Dich, Cau Giay, Ha Noi</Typography>
           </Box>
           <Box>
           <div style={{ display: 'inline-block', marginBottom: '20px' }}>

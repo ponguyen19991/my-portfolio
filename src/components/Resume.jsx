@@ -1,194 +1,481 @@
-import React, { useState } from 'react'
-import { Tabs, Tab, Box, Typography, Stack, Accordion, AccordionSummary, AccordionDetails, Chip } from '@mui/material'
+import React, { useState } from "react";
+import {
+  Tabs,
+  Tab,
+  Box,
+  Typography,
+  Stack,
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
+  Chip,
+} from "@mui/material";
 
-import { MdWorkHistory   } from "react-icons/md";
-import { FaUserGraduate, FaCalendarAlt  } from "react-icons/fa";
+import { MdWorkHistory } from "react-icons/md";
+import { FaUserGraduate, FaCalendarAlt } from "react-icons/fa";
 import { IoSchoolSharp } from "react-icons/io5";
 
-import personal from "../assets/images/personal.jpg"
-import logoUniver from "../assets/images/Logo-DH-Hoa-Binh-Peace-University.png"
+import personal from "../assets/images/personal.jpg";
+import logoUniver from "../assets/images/Logo-DH-Hoa-Binh-Peace-University.png";
 
-import '../assets/css/Resume.scss'
+import "../assets/css/Resume.scss";
 
 const Resume = () => {
   const handleClick = () => {
-    console.info('You clicked the Chip.');
+    console.info("You clicked the Chip.");
   };
 
-
   return (
-    <Box>
-      <Box sx={{ textAlign: 'center' }}>
-        <Typography variant="h4" component="h2" sx={{ fontWeight: '550', borderBottom: '2px solid var(--text-color)', display: 'inline-block', mb: 2 }}>
+    <Box sx={{ maxWidth: "1200px", mx: "auto", py: 4 }}>
+      {/* Header */}
+      <Box sx={{ textAlign: "center", mb: 4 }}>
+        <Typography
+          variant="h4"
+          component="h2"
+          sx={{
+            fontWeight: "550",
+            borderBottom: "2px solid var(--text-color)",
+            display: "inline-block",
+            mb: 1,
+          }}
+        >
           Qualification
         </Typography>
-        <Typography variant='p' component="p" sx={{ fontWeight: '550', color: "#989898" }}>
+        <Typography
+          variant="body1"
+          sx={{ fontWeight: "550", color: "#989898" }}
+        >
           My personal journey
         </Typography>
       </Box>
 
-      <Stack direction="row" justifyContent="space-around" alignItems="center" spacing={2} mt={2}>
-        <Box >
-          <img src={personal} alt="me" style={{ borderRadius: '5px' }}/>
-          <Typography variant='p' component="p" sx={{ fontWeight: '550', color: "#989898", textAlign: 'center' }}>
+      {/* Main Content */}
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: { xs: "column", md: "row" },
+          gap: 4,
+          alignItems: { xs: "center", md: "flex-start" },
+        }}
+      >
+        {/* Profile Image Section */}
+        <Box
+          sx={{
+            flex: "0 0 auto",
+            textAlign: "center",
+            width: { xs: "100%", md: "300px" }, // Fixed width on desktop
+            maxWidth: "300px",
+            position: "sticky", // Prevents image from moving
+            top: "20px", // Adjust based on your layout
+            alignSelf: "flex-start",
+          }}
+        >
+          <img
+            src={personal}
+            alt="Pham Thanh Nguyen Bui"
+            style={{
+              borderRadius: "5px",
+              width: "100%",
+              maxWidth: "250px",
+              height: "auto",
+              marginBottom: "10px",
+            }}
+          />
+          <Typography
+            variant="body1"
+            sx={{ fontWeight: "550", color: "#989898", mb: 1 }}
+          >
             Pham Thanh Nguyen Bui
           </Typography>
-          <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <Chip className='tags' label="2 years" onClick={handleClick} />
-            <Typography variant='p' component="p" sx={{ fontWeight: '550', color: "var(--text-color)", textAlign: 'center', mt: 1, ml: 1 }}>
-             Front End Developer
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <Chip
+              label="4 years"
+              onClick={handleClick}
+              sx={{ mr: 1 }}
+            />
+            <Typography
+              variant="body1"
+              sx={{ fontWeight: "550", color: "var(--text-color)" }}
+            >
+              Front End Developer
             </Typography>
           </Box>
         </Box>
-        <Stack direction="column" spacing={6}>
-          <Box>
-            <Typography variant="h6" component="h2" sx={{ fontWeight: '550' }}>
+
+        {/* Education & Work Section */}
+        <Box sx={{ flex: 1, maxWidth: { xs: "100%", md: "800px" } }}>
+          {/* Education */}
+          <Box sx={{ mb: 4 }}>
+            <Typography variant="h6" sx={{ fontWeight: "550", mb: 1 }}>
               Education
             </Typography>
             <Accordion>
-            <AccordionSummary
-              aria-controls="panel1-content"
-              id="panel1-header"
-              sx={{ fontWeight: 'bold' }}
-            >
-              <Stack direction="column" spacing={1}>
-                <Stack direction="row" justifyContent="space-between" alignItems="center" spacing={11}>
-                  <Box>
-                    <IoSchoolSharp style={{ fontSize: '20px', marginRight: '7px' }}/> Hoa Binh University
-                  </Box>
-                  <Typography variant='p' component="p" sx={{ fontWeight: '550', color: "#989898", textAlign: 'center' }}>
-                    07/2017 - 09/2021
-                  </Typography>
-                </Stack>
-                <Box>
-                  <Stack direction="row" justifyContent="space-between" alignItems="center" spacing={11}>
-                    <Typography variant='p' component="p" sx={{ fontWeight: '550', }}>
+              <AccordionSummary
+                aria-controls="panel1-content"
+                id="panel1-header"
+                sx={{ fontWeight: "bold" }}
+              >
+                <Stack direction="column" spacing={1} sx={{ width: "100%" }}>
+                  <Stack
+                    direction="row"
+                    justifyContent="space-between"
+                    alignItems="center"
+                    spacing={2}
+                  >
+                    <Box sx={{ display: "flex", alignItems: "center" }}>
+                      <IoSchoolSharp
+                        style={{ fontSize: "20px", marginRight: "7px" }}
+                      />
+                      Hoa Binh University
+                    </Box>
+                    <Typography
+                      variant="body2"
+                      sx={{ fontWeight: "550", color: "#989898" }}
+                    >
+                      07/2017 - 09/2021
+                    </Typography>
+                  </Stack>
+                  <Stack
+                    direction="row"
+                    justifyContent="space-between"
+                    alignItems="center"
+                    spacing={2}
+                  >
+                    <Typography variant="body2" sx={{ fontWeight: "550" }}>
                       IT - Web Development
                     </Typography>
-                    <Typography variant='p' component="p" sx={{ fontWeight: 'bold', color: "#0e5beb", textAlign: 'center' }}>
+                    <Typography
+                      variant="body2"
+                      sx={{ fontWeight: "bold", color: "#0e5beb" }}
+                    >
                       4 years
                     </Typography>
                   </Stack>
-                </Box>
-              </Stack>
-            </AccordionSummary>
+                </Stack>
+              </AccordionSummary>
               <AccordionDetails>
-                <Stack direction="row" justifyContent="space-around" alignItems="center" spacing={1}>
-                  <img src={logoUniver} alt="school" width={50}/>
+                <Stack direction="row" alignItems="center" spacing={2}>
+                  <img src={logoUniver} alt="school" width={50} />
                   <Box>
-                    <Typography variant='p' component="p" sx={{ fontWeight: '550', }}>
+                    <Typography variant="body2" sx={{ fontWeight: "550" }}>
                       Information Technology - Web Developer
                     </Typography>
-                    <Typography variant='p' component="p" sx={{ fontWeight: 'bold', color: "#0e5beb", textAlign: 'center' }}>
-                      Degree classication: Good - GPA: 3.2
+                    <Typography
+                      variant="body2"
+                      sx={{ fontWeight: "bold", color: "#0e5beb" }}
+                    >
+                      Degree classification: Good - GPA: 3.2
                     </Typography>
                   </Box>
                 </Stack>
               </AccordionDetails>
             </Accordion>
           </Box>
-          <Box>
-            <Typography variant="h6" component="h2" sx={{ fontWeight: '550' }}>
+
+          {/* Work */}
+          <Box sx={{ mb: 4 }}>
+            <Typography variant="h6" sx={{ fontWeight: "550", mb: 1 }}>
               Work
             </Typography>
-            
             <Stack direction="column" spacing={1}>
+              {/* INET Solution */}
               <Accordion>
                 <AccordionSummary
                   aria-controls="panel1-content"
                   id="panel1-header"
-                  sx={{ fontWeight: 'bold' }}
+                  sx={{ fontWeight: "bold" }}
                 >
-                  <Stack direction="column" spacing={1}>
-                    <Stack direction="row" justifyContent="space-between" alignItems="center" spacing={9}>
-                      <Box>
-                        <MdWorkHistory style={{ fontSize: '20px', marginRight: '7px' }}/> Intern Web Developer
+                  <Stack direction="column" spacing={1} sx={{ width: "100%" }}>
+                    <Stack
+                      direction="row"
+                      justifyContent="space-between"
+                      alignItems="center"
+                      spacing={2}
+                    >
+                      <Box sx={{ display: "flex", alignItems: "center" }}>
+                        <MdWorkHistory
+                          style={{ fontSize: "20px", marginRight: "7px" }}
+                        />
+                        Intern Web Developer
                       </Box>
-                      <Typography variant='p' component="p" sx={{ fontWeight: '550', color: "#989898", textAlign: 'center' }}>
+                      <Typography
+                        variant="body2"
+                        sx={{ fontWeight: "550", color: "#989898" }}
+                      >
                         04/2021 - 07/2021
                       </Typography>
                     </Stack>
-                    <Box>
-                      <Stack direction="row" justifyContent="space-between" alignItems="center" spacing={11}>
-                        <Typography variant='p' component="p" sx={{ fontWeight: '550', }}>
-                          INET Solution
-                        </Typography>
-                        <Typography variant='p' component="p" sx={{ fontWeight: 'bold', color: "#0e5beb", textAlign: 'center' }}>
-                          3 Months
-                        </Typography>
-                      </Stack>
-                    </Box>
+                    <Stack
+                      direction="row"
+                      justifyContent="space-between"
+                      alignItems="center"
+                      spacing={2}
+                    >
+                      <Typography variant="body2" sx={{ fontWeight: "550" }}>
+                        INET Solution
+                      </Typography>
+                      <Typography
+                        variant="body2"
+                        sx={{ fontWeight: "bold", color: "#0e5beb" }}
+                      >
+                        3 Months
+                      </Typography>
+                    </Stack>
                   </Stack>
                 </AccordionSummary>
                 <AccordionDetails>
-                  <Typography variant="p" component="p" sx={{ fontWeight: 'bold', fontSize: '19px',  mb: 1 }}>
+                  <Typography
+                    variant="body1"
+                    sx={{ fontWeight: "bold", fontSize: "18px", mb: 1 }}
+                  >
                     Main responsibilities:
                   </Typography>
-                  <Typography variant='p' component="p" sx={{ fontWeight: '550',  mb: 1 }}>
-                    - Assisting in the development of web applications and websites using PHP programming language.
+                  <Typography variant="body2" sx={{ fontWeight: "550", mb: 1 }}>
+                    - Assisted in developing web applications using PHP and
+                    Laravel.
                   </Typography>
-                  <Typography variant='p' component="p" sx={{ fontWeight: '550',  mb: 1 }}>
-                    - Collaborating with the development team to understand project requirements and objectives.
+                  <Typography variant="body2" sx={{ fontWeight: "550", mb: 1 }}>
+                    - Collaborated with the team to understand project
+                    requirements.
                   </Typography>
-                  <Typography variant='p' component="p" sx={{ fontWeight: '550',  mb: 2 }}>
-                    - Learning and utilizing frameworks, libraries, and tools commonly used in PHP development, such as Laravel.
+                  <Typography variant="body2" sx={{ fontWeight: "550", mb: 2 }}>
+                    - Learned and applied frameworks and tools for PHP
+                    development.
                   </Typography>
-                  <Typography variant='p' component="p" sx={{ fontWeight: 'bold', color: "#0e5beb" }}>
+                  <Typography
+                    variant="body2"
+                    sx={{ fontWeight: "bold", color: "#0e5beb" }}
+                  >
                     Download my CV for more information!
                   </Typography>
                 </AccordionDetails>
               </Accordion>
 
+              {/* STECH Company */}
               <Accordion>
                 <AccordionSummary
-                  aria-controls="panel1-content"
-                  id="panel1-header"
-                  sx={{ fontWeight: 'bold' }}
+                  aria-controls="panel2-content"
+                  id="panel2-header"
+                  sx={{ fontWeight: "bold" }}
                 >
-                  <Stack direction="column" spacing={1}>
-                    <Stack direction="row" justifyContent="space-between" alignItems="center" spacing={5}>
-                      <Box>
-                        <MdWorkHistory style={{ fontSize: '20px', marginRight: '7px' }}/> Junior Frontend Developer
+                  <Stack direction="column" spacing={1} sx={{ width: "100%" }}>
+                    <Stack
+                      direction="row"
+                      justifyContent="space-between"
+                      alignItems="center"
+                      spacing={2}
+                    >
+                      <Box sx={{ display: "flex", alignItems: "center" }}>
+                        <MdWorkHistory
+                          style={{ fontSize: "20px", marginRight: "7px" }}
+                        />
+                        Junior Frontend Developer
                       </Box>
-                      <Typography variant='p' component="p" sx={{ fontWeight: '550', color: "#989898", textAlign: 'center' }}>
+                      <Typography
+                        variant="body2"
+                        sx={{ fontWeight: "550", color: "#989898" }}
+                      >
                         09/2021 - 10/2023
                       </Typography>
                     </Stack>
-                    <Box>
-                      <Stack direction="row" justifyContent="space-between" alignItems="center" spacing={11}>
-                        <Typography variant='p' component="p" sx={{ fontWeight: '550', }}>
-                          STECH Company
-                        </Typography>
-                        <Typography variant='p' component="p" sx={{ fontWeight: 'bold', color: "#0e5beb", textAlign: 'center' }}>
-                          2 years
-                        </Typography>
-                      </Stack>
-                    </Box>
+                    <Stack
+                      direction="row"
+                      justifyContent="space-between"
+                      alignItems="center"
+                      spacing={2}
+                    >
+                      <Typography variant="body2" sx={{ fontWeight: "550" }}>
+                        STECH Company
+                      </Typography>
+                      <Typography
+                        variant="body2"
+                        sx={{ fontWeight: "bold", color: "#0e5beb" }}
+                      >
+                        2 years
+                      </Typography>
+                    </Stack>
                   </Stack>
                 </AccordionSummary>
                 <AccordionDetails>
-                  <Typography variant="p" component="p" sx={{ fontWeight: 'bold', fontSize: '19px', mb: 1 }}>
+                  <Typography
+                    variant="body1"
+                    sx={{ fontWeight: "bold", fontSize: "18px", mb: 1 }}
+                  >
                     Main responsibilities:
                   </Typography>
-                  <Typography variant='p' component="p" sx={{ fontWeight: '550', mb: 1 }}>
-                    - Developing responsive and user-friendly web applications using ReactJS and NextJS.
+                  <Typography variant="body2" sx={{ fontWeight: "550", mb: 1 }}>
+                    - Developed responsive web applications using ReactJS and
+                    NextJS.
                   </Typography>
-                  <Typography variant='p' component="p" sx={{ fontWeight: '550', mb: 1 }}>
-                    - Analyze, code, review and refactoring code.
+                  <Typography variant="body2" sx={{ fontWeight: "550", mb: 1 }}>
+                    - Analyzed, coded, reviewed, and refactored code.
                   </Typography>
-                  <Typography variant='p' component="p" sx={{ fontWeight: '550', mb: 1 }}>
-                    - Implementing UI/UX designs and ensuring consistent user experience across different devices and browsers.
+                  <Typography variant="body2" sx={{ fontWeight: "550", mb: 1 }}>
+                    - Implemented UI/UX designs for consistent user experience.
                   </Typography>
-                  <Typography variant='p' component="p" sx={{ fontWeight: '550', mb: 1 }}>
-                    - Working with APIs and integrating data from back-end services.
+                  <Typography variant="body2" sx={{ fontWeight: "550", mb: 1 }}>
+                    - Integrated APIs and managed data from back-end services.
                   </Typography>
-                  <Typography variant='p' component="p" sx={{ fontWeight: '550', mb: 1 }}>
-                    - Handling and managing data flow and asynchronous operations using Axios or Fetch.
+                  <Typography variant="body2" sx={{ fontWeight: "550", mb: 1 }}>
+                    - Handled asynchronous operations using Axios or Fetch.
                   </Typography>
-                  <Typography variant='p' component="p" sx={{ fontWeight: '550', mb: 2 }}>
-                    - Working with version control systems (e.g., Git) to manage codebase and collaborate with team members.
+                  <Typography variant="body2" sx={{ fontWeight: "550", mb: 2 }}>
+                    - Used Git for version control and team collaboration.
                   </Typography>
-                  <Typography variant='p' component="p" sx={{ fontWeight: 'bold', color: "#0e5beb" }}>
+                  <Typography
+                    variant="body2"
+                    sx={{ fontWeight: "bold", color: "#0e5beb" }}
+                  >
+                    Download my CV for more information!
+                  </Typography>
+                </AccordionDetails>
+              </Accordion>
+
+              {/* IKIGROUP */}
+              <Accordion>
+                <AccordionSummary
+                  aria-controls="panel3-content"
+                  id="panel3-header"
+                  sx={{ fontWeight: "bold" }}
+                >
+                  <Stack direction="column" spacing={1} sx={{ width: "100%" }}>
+                    <Stack
+                      direction="row"
+                      justifyContent="space-between"
+                      alignItems="center"
+                      spacing={2}
+                    >
+                      <Box sx={{ display: "flex", alignItems: "center" }}>
+                        <MdWorkHistory
+                          style={{ fontSize: "20px", marginRight: "7px" }}
+                        />
+                        Front-end Developer [ReactJS]
+                      </Box>
+                      <Typography
+                        variant="body2"
+                        sx={{ fontWeight: "550", color: "#989898" }}
+                      >
+                        05/2024 - Present
+                      </Typography>
+                    </Stack>
+                    <Stack
+                      direction="row"
+                      justifyContent="space-between"
+                      alignItems="center"
+                      spacing={2}
+                    >
+                      <Typography variant="body2" sx={{ fontWeight: "550" }}>
+                        IKIGROUP
+                      </Typography>
+                      <Typography
+                        variant="body2"
+                        sx={{ fontWeight: "bold", color: "#0e5beb" }}
+                      >
+                        Ongoing
+                      </Typography>
+                    </Stack>
+                  </Stack>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <Typography
+                    variant="body1"
+                    sx={{ fontWeight: "bold", fontSize: "18px", mb: 1 }}
+                  >
+                    Main responsibilities:
+                  </Typography>
+                  <Typography variant="body2" sx={{ fontWeight: "550", mb: 1 }}>
+                    - Developed responsive web apps using ReactJS, NextJS, and
+                    TypeScript.
+                  </Typography>
+                  <Typography variant="body2" sx={{ fontWeight: "550", mb: 1 }}>
+                    - Optimized performance with memoization, virtualization,
+                    and code-splitting.
+                  </Typography>
+                  <Typography variant="body2" sx={{ fontWeight: "550", mb: 1 }}>
+                    - Implemented SSR and SSG with Next.js for performance and
+                    SEO.
+                  </Typography>
+                  <Typography variant="body2" sx={{ fontWeight: "550", mb: 1 }}>
+                    - Built reusable components using Atomic Design methodology.
+                  </Typography>
+                  <Typography variant="body2" sx={{ fontWeight: "550", mb: 1 }}>
+                    - Ensured code quality with Clean Code and SOLID principles.
+                  </Typography>
+                  <Typography variant="body2" sx={{ fontWeight: "550", mb: 1 }}>
+                    - Managed state with Redux Toolkit and collaborated with
+                    UI/UX designers.
+                  </Typography>
+                  <Typography variant="body2" sx={{ fontWeight: "550", mb: 2 }}>
+                    - Conducted code reviews and provided technical guidance.
+                  </Typography>
+
+                  <Typography
+                    variant="body1"
+                    sx={{ fontWeight: "bold", fontSize: "18px", mb: 1 }}
+                  >
+                    Projects:
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    sx={{ fontWeight: "bold", mb: 1 }}
+                  >
+                    DONCHAN (2024)
+                  </Typography>
+                  <Typography variant="body2" sx={{ fontWeight: "550", mb: 1 }}>
+                    - Online food ordering platform with menu management and
+                    real-time tracking.
+                  </Typography>
+                  <Typography variant="body2" sx={{ fontWeight: "550", mb: 1 }}>
+                    - Role: Design & Development
+                  </Typography>
+                  <Typography variant="body2" sx={{ fontWeight: "550", mb: 2 }}>
+                    - Technologies: HTML5, CSS3, MUI, TypeScript, ReactJS
+                  </Typography>
+
+                  <Typography
+                    variant="body2"
+                    sx={{ fontWeight: "bold", mb: 1 }}
+                  >
+                    IKIGAI COACH (2024 - Present)
+                  </Typography>
+                  <Typography variant="body2" sx={{ fontWeight: "550", mb: 1 }}>
+                    - E-learning platform with courses, group calls, and social
+                    features.
+                  </Typography>
+                  <Typography variant="body2" sx={{ fontWeight: "550", mb: 1 }}>
+                    - Role: Design & Development
+                  </Typography>
+                  <Typography variant="body2" sx={{ fontWeight: "550", mb: 2 }}>
+                    - Technologies: HTML5, CSS3, MUI, TypeScript, NextJS
+                  </Typography>
+
+                  <Typography
+                    variant="body2"
+                    sx={{ fontWeight: "bold", mb: 1 }}
+                  >
+                    CMS IKIGAICOACH (2024 - Present)
+                  </Typography>
+                  <Typography variant="body2" sx={{ fontWeight: "550", mb: 1 }}>
+                    - Admin system for managing users, courses, and social
+                    posts.
+                  </Typography>
+                  <Typography variant="body2" sx={{ fontWeight: "550", mb: 1 }}>
+                    - Role: Design & Development
+                  </Typography>
+                  <Typography variant="body2" sx={{ fontWeight: "550", mb: 2 }}>
+                    - Technologies: HTML5, CSS3, MUI, TypeScript, ReactJS
+                  </Typography>
+
+                  <Typography
+                    variant="body2"
+                    sx={{ fontWeight: "bold", color: "#0e5beb" }}
+                  >
                     Download my CV for more information!
                   </Typography>
                 </AccordionDetails>
@@ -196,25 +483,44 @@ const Resume = () => {
             </Stack>
           </Box>
 
+          {/* Key Skills */}
           <Box>
-            <Typography variant="h6" component="h2" sx={{ fontWeight: '550' }}>
+            <Typography variant="h6" sx={{ fontWeight: "550", mb: 1 }}>
               Key Skills
             </Typography>
-            <Stack direction="row" spacing={1} sx={{  flexWrap: 'wrap' }}>
-              <Chip className='tags' label="HTML" variant="outlined" onClick={handleClick} />
-              <Chip className='tags' label="HTML5" variant="outlined" onClick={handleClick} />
-              <Chip className='tags' label="CSS" variant="outlined" onClick={handleClick} />
-              <Chip className='tags' label="CSS3" variant="outlined" onClick={handleClick} />
-              <Chip className='tags' label="Javascript" variant="outlined" onClick={handleClick} />
-              <Chip className='tags' label="Jquery" variant="outlined" onClick={handleClick} />
-              <Chip className='tags' label="ReactJs" variant="outlined" onClick={handleClick} />
+            <Stack
+              direction="row"
+              spacing={1}
+              sx={{ flexWrap: "wrap", gap: 1 }}
+            >
+              {[
+                "HTML5",
+                "CSS3",
+                "JavaScript",
+                "TypeScript",
+                "ReactJS",
+                "NextJS",
+                "Redux Toolkit",
+                "MUI",
+                "Git",
+                "Axios",
+                "Laravel",
+              ].map((skill) => (
+                <Chip
+                  key={skill}
+                  className="tags"
+                  label={skill}
+                  variant="outlined"
+                  onClick={handleClick}
+                  sx={{ mb: 1 }}
+                />
+              ))}
             </Stack>
           </Box>
-        </Stack>
-        
-      </Stack>
+        </Box>
+      </Box>
     </Box>
-  )
-}
+  );
+};
 
-export default Resume
+export default Resume;
